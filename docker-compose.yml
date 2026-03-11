@@ -1,0 +1,28 @@
+services:
+  postgres-medusa:
+    image: postgres:15
+    container_name: medusa-db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: medusa_db
+    volumes:
+      - medusa-data:/var/lib/postgresql/data
+
+  postgres-payload:
+    image: postgres:15
+    container_name: payload-db
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: payload_db
+    volumes:
+      - payload-data:/var/lib/postgresql/data
+
+volumes:
+  medusa-data:
+  payload-data:
