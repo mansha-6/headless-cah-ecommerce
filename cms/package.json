@@ -5,8 +5,8 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "build": "cross-env NODE_OPTIONS=\"--no-deprecation --max-old-space-size=8000\" next build",
-    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
+    "build": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts next build",
+    "dev": "next dev",
     "devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation next dev",
     "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
     "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
@@ -21,6 +21,7 @@
     "@payloadcms/db-postgres": "3.79.0",
     "@payloadcms/next": "3.79.0",
     "@payloadcms/richtext-lexical": "3.79.0",
+    "@payloadcms/storage-vercel-blob": "^3.79.0",
     "@payloadcms/ui": "3.79.0",
     "axios": "^1.13.6",
     "cross-env": "^7.0.3",
