@@ -1,8 +1,7 @@
 import { 
   type SubscriberConfig, 
   type SubscriberArgs,
-  IProductModuleService,
-} from "@medusajs/medusa"
+} from "@medusajs/framework"
 import { Modules } from "@medusajs/utils"
 import axios from "axios"
 
@@ -13,7 +12,7 @@ export default async function productSyncHandler({
   event, 
   container 
 }: SubscriberArgs<any>) {
-  const productModuleService: IProductModuleService = container.resolve(Modules.PRODUCT)
+  const productModuleService: any = container.resolve(Modules.PRODUCT)
   const productId = event.data.id
 
   if (!productId) return
